@@ -1,0 +1,49 @@
+/* eslint-disable import/no-named-as-default */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Switch, NavLink, Route } from 'react-router-dom';
+import Login from './Login';
+import Dashboard from './Dashboard';
+
+// This is a class-based component because the current
+// version of hot reloading won't hot reload a stateless
+// component at the top-level.
+
+class App extends React.Component {
+  render() {
+      return (
+          <div>
+          <nav className="navbar navbar-inverse">
+                  <div className="container-fluid">
+                      <div className="navbar-header">
+                          <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                              <span className="icon-bar"></span>
+                              <span className="icon-bar"></span>
+                              <span className="icon-bar"></span>
+                          </button>
+                          <a className="navbar-brand" href="#">WebSiteName</a>
+                      </div>
+                      <div className="collapse navbar-collapse" id="myNavbar">
+                          <ul className="nav navbar-nav">
+                              <li className="active"><NavLink to="/">Login</NavLink></li>
+                              <li className="active"><NavLink to="/home">Demo App</NavLink></li>
+                              {/*<li>Pie Chart</li>
+                              <li>Notification</li>*/}
+                          </ul>
+                      </div>
+              </div>
+          </nav>
+              <Switch>
+                  <Route exact path="/" component={Login} />
+                  <Route exact path="/home" component={Dashboard} />
+              </Switch>
+          </div>
+      );
+  }
+}
+
+App.propTypes = {
+  children: PropTypes.element
+};
+
+export default App;

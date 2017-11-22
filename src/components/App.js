@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import Login from './Login';
 import Dashboard from './Dashboard';
-
-// This is a class-based component because the current
-// version of hot reloading won't hot reload a stateless
-// component at the top-level.
+import Profile from './Profile';
 
 class App extends React.Component {
   render() {
@@ -21,14 +18,13 @@ class App extends React.Component {
                               <span className="icon-bar"></span>
                               <span className="icon-bar"></span>
                           </button>
-                          <a className="navbar-brand" href="#">WebSiteName</a>
+                          <a className="navbar-brand" href="#">Offers Recommender System</a>
                       </div>
                       <div className="collapse navbar-collapse" id="myNavbar">
                           <ul className="nav navbar-nav">
-                              <li className="active"><NavLink to="/">Login</NavLink></li>
-                              <li className="active"><NavLink to="/home">Demo App</NavLink></li>
-                              {/*<li>Pie Chart</li>
-                              <li>Notification</li>*/}
+                              <li className="active"><NavLink to="/home">Offers</NavLink></li>
+                              <li className="active"><NavLink to="/profile">Profile</NavLink></li>
+
                           </ul>
                       </div>
               </div>
@@ -36,6 +32,7 @@ class App extends React.Component {
               <Switch>
                   <Route exact path="/" component={Login} />
                   <Route exact path="/home" component={Dashboard} />
+                  <Route exact path="/profile" component={Profile} />
               </Switch>
           </div>
       );

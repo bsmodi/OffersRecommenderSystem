@@ -1,7 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actions from '../actions/customerDataActions';
+import {push} from 'react-router-redux';
 
-export default class Login extends React.Component {
+export class Login extends React.Component {
+    constructor(props){
+        super(props);
+        this.login = this.login.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    login(event) {
+        event.preventDefault();
+        this.props.actions.loadCustomerData(this.props.customerData.userId);
+        this.props.history.push('/home');
+
+    }
+
+    handleChange(event) {
+        this.props.actions.handleChange(event.target.value);
+    }
+
     render() {
         return (
             <div className="row row-table page-wrapper">
@@ -16,11 +37,11 @@ export default class Login extends React.Component {
                             </p>
                         </div>
                         <div className="panel-body">
-                            <form role="form" className="mb-lg">
+                            <form role="form" className="mb-lg" onSubmit={this.login}>
                                 <div className="text-right mb-sm"><a href="signup.html" className="text-muted">Need to Signup?</a>
                                 </div>
                                 <div className="form-group has-feedback">
-                                    <input id="exampleInputEmail1" type="email" placeholder="Enter email" className="form-control" />
+                                    <input id="exampleInputEmail1" type="text" placeholder="Enter username" className="form-control" value={this.props.customerData.userId} onChange={this.handleChange}/>
                                         <span className="fa fa-envelope form-control-feedback text-muted"></span>
                                 </div>
                                 <div className="form-group has-feedback">
@@ -36,7 +57,7 @@ export default class Login extends React.Component {
                                     <div className="pull-right"><a href="forgetPassword.html" className="text-muted">Forgot your password?</a>
                                     </div>
                                 </div>
-                                <Link to="/home" className="btn btn-block btn-primary">Login</Link>
+                                <input className="btn btn-block btn-primary" type="submit" value="Login" />
                             </form>
                         </div>
                     </div>
@@ -45,3 +66,28 @@ export default class Login extends React.Component {
         );
     }
 }
+
+
+Login.propTypes = {
+    actions: PropTypes.object.isRequired,
+    customerData: PropTypes.object.isRequired,
+};
+
+
+function mapStateToProps(state) {
+    return {
+        customerData: state.customerData
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(actions, dispatch)
+    };
+}
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Login);

@@ -8,13 +8,19 @@ import './styles/app.css';
 //import './styles/font-awesome.min.css';
 import './styles/common.css';
 import './styles/main.scss';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {loadCustomerData} from "./actions/customerDataActions"
+
 require('./favicon.ico');
 const store = configureStore();
 
 render(
-  <AppContainer>
-    <Root store={store} history={history} />
-  </AppContainer>,
+    <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <AppContainer>
+        <Root store={store} history={history} />
+      </AppContainer>
+    </MuiThemeProvider>,
   document.getElementById('app')
 );
 
@@ -28,5 +34,5 @@ if (module.hot) {
       document.getElementById('app')
     );
   });
-}
+};
 //render(<div>Hello World</div>, document.getElementById('app'));

@@ -6,20 +6,22 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../actions/customerDataActions';
 
 export class Dashboard extends React.Component {
+
     render(){
         return (
           <div>
-              <div className="wrapper">
-                      <div className="content-wrapper">
-                          <h3>Offers only For YOU
+              <div>
+                      <div className="wrapper">
+                          <h3>Personalised Offers
                           </h3>
-                          <div className="row">
-                              <div className="col-lg-12">
-                                  <BootstrapTable data={this.props.customerData.offers}>
-                                      <TableHeaderColumn dataField='id' isKey={true}>OfferName</TableHeaderColumn>
-                                      <TableHeaderColumn dataField='offerName'>OfferName</TableHeaderColumn>
+                          <div className="content-wrapper">
+                              <div>
+
+                                  <BootstrapTable data={this.props.customerData.offers} pagination striped>
+                                      <TableHeaderColumn dataField='id' isKey={true} dataSort>id</TableHeaderColumn>
+                                      <TableHeaderColumn dataField='merchantCategory'>Merchant Category</TableHeaderColumn>
+                                      <TableHeaderColumn dataField='offer'>Offer</TableHeaderColumn>
                                       <TableHeaderColumn dataField='price'>Price</TableHeaderColumn>
-                                      <TableHeaderColumn dataField='details'><a href="#">Details</a></TableHeaderColumn>
                                   </BootstrapTable>
                               </div>
                           </div>
@@ -33,7 +35,7 @@ export class Dashboard extends React.Component {
 
 Dashboard.propTypes = {
     actions: PropTypes.object.isRequired,
-    customerData: PropTypes.object.isRequired
+    customerData: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {

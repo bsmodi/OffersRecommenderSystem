@@ -13,13 +13,13 @@ export class Dashboard extends React.Component {
           <div>
               <Navigation/>
               <div>
-                      <div className="wrapper">
+                      <div>
                           <h3 className="col-md-offset-5">Personalised Offers
                           </h3>
                           <div className="content-wrapper">
                               <div>
 
-                                  <BootstrapTable data={this.props.customerData.offers} pagination striped>
+                                  <BootstrapTable data={this.props.customerData.offers} pagination striped bordered search>
                                       <TableHeaderColumn dataField='id' isKey={true} dataSort>id</TableHeaderColumn>
                                       <TableHeaderColumn dataField='merchantCategory'>Merchant Category</TableHeaderColumn>
                                       <TableHeaderColumn dataField='offer'>Offer</TableHeaderColumn>

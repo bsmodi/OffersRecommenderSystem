@@ -4,15 +4,17 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/customerDataActions';
+import Navigation from "./Navigation";
 
 export class Dashboard extends React.Component {
 
     render(){
         return (
           <div>
+              <Navigation/>
               <div>
                       <div className="wrapper">
-                          <h3>Personalised Offers
+                          <h3 className="col-md-offset-5">Personalised Offers
                           </h3>
                           <div className="content-wrapper">
                               <div>

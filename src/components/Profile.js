@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/customerDataActions';
 import DatePicker from 'material-ui/DatePicker';
+import Navigation from "./Navigation";
 
 export class Profile extends React.Component {
     constructor(props) {
@@ -11,9 +12,10 @@ export class Profile extends React.Component {
     }
     render(){
         return (
-            
+    <div>
+    <Navigation />
     <div className="content-wrapper">
-        <h3>My Account
+        <h3 className="col-md-offset-2">My Account
             <small>Let us know more!!!!</small>
         </h3>
         <div className="row">
@@ -115,6 +117,7 @@ export class Profile extends React.Component {
                 </div>
             </div>
         </div>
+    </div>
     </div>
         );
     }

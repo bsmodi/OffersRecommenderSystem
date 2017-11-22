@@ -10,7 +10,7 @@ class App extends React.Component {
   render() {
       return (
           <div>
-          <nav className="navbar navbar-inverse">
+          {/*<nav className="navbar navbar-inverse">
                   <div className="container-fluid">
                       <div className="navbar-header">
                           <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -26,9 +26,12 @@ class App extends React.Component {
                               <li className="active"><NavLink to="/profile">Profile</NavLink></li>
 
                           </ul>
+                          <ul class="nav navbar-nav navbar-right">
+                              <li className="active"><NavLink to="/">Log Out</NavLink></li>
+                          </ul>
                       </div>
               </div>
-          </nav>
+          </nav>*/}
               <Switch>
                   <Route exact path="/" component={Login} />
                   <Route exact path="/home" component={Dashboard} />

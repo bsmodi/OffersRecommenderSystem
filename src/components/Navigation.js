@@ -20,7 +20,7 @@ export default class Navigation extends React.Component {
                             <li className="active"><NavLink to="/profile">Profile</NavLink></li>
 
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul className="nav navbar-nav navbar-right">
                             <li className="active"><NavLink to="/">Log Out</NavLink></li>
                         </ul>
                     </div>

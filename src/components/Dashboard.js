@@ -9,6 +9,7 @@ import Navigation from "./Navigation";
 export class Dashboard extends React.Component {
 
     render(){
+
         return (
           <div>
               <Navigation/>
@@ -20,10 +21,9 @@ export class Dashboard extends React.Component {
                               <div>
 
                                   <BootstrapTable data={this.props.customerData.offers} pagination striped bordered search>
-                                      <TableHeaderColumn dataField='id' isKey={true} dataSort>id</TableHeaderColumn>
+                                      <TableHeaderColumn dataField='id' isKey={true} dataSort width='40px'>id</TableHeaderColumn>
                                       <TableHeaderColumn dataField='merchantCategory'>Merchant Category</TableHeaderColumn>
-                                      <TableHeaderColumn dataField='offer'>Offer</TableHeaderColumn>
-                                      <TableHeaderColumn dataField='price'>Price</TableHeaderColumn>
+                                      <TableHeaderColumn dataField='price' width='80px'>Price</TableHeaderColumn>
                                   </BootstrapTable>
                               </div>
                           </div>
